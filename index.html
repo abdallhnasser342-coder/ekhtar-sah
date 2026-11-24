@@ -1,0 +1,363 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>اختار صح | اكتشف قبل ما تشتري</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f4f6f8;color:#172033}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+
+header{background:#101827;color:#fff;position:sticky;top:0;z-index:50}
+nav{max-width:1250px;margin:auto;padding:18px 20px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:26px;font-weight:900;color:#f5bd4f}
+.navlinks{display:flex;gap:22px;font-size:14px;color:#eee}
+.navlinks a:hover{color:#f5bd4f}
+
+.hero{background:linear-gradient(125deg,#101827,#294563);color:#fff;padding:65px 20px}
+.hero-inner{max-width:1250px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:35px}
+.hero-text{max-width:620px}
+.hero-label{display:inline-block;background:#ffffff12;border:1px solid #ffffff25;padding:8px 15px;border-radius:30px;color:#f5bd4f;margin-bottom:18px}
+.hero h1{font-size:44px;line-height:1.5;margin-bottom:15px}
+.hero p{font-size:17px;line-height:2;color:#d5deeb}
+.hero-img{width:43%;height:340px;object-fit:cover;border-radius:20px}
+.search{margin-top:25px;display:flex;background:white;border-radius:12px;overflow:hidden;max-width:550px}
+.search input{flex:1;min-width:0;border:0;outline:0;padding:17px;font-size:16px;color:#172033}
+.search button{background:#f5bd4f;border:0;padding:0 23px;font-weight:bold}
+
+.container{max-width:1250px;margin:auto;padding:35px 20px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:22px}
+.section-head h2{font-size:26px}
+.section-head span{font-size:13px;color:#929aa6}
+.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-bottom:42px}
+.cat{background:white;border:1px solid #e9edf1;padding:24px 14px;border-radius:15px;text-align:center;cursor:pointer;transition:.2s}
+.cat:hover{transform:translateY(-4px);background:#17263b;color:white}
+.cat-icon{font-size:34px;margin-bottom:13px}
+.cat h3{font-size:17px;margin-bottom:8px}
+.cat p{font-size:12px;color:#929aa6;line-height:1.7}
+
+.feature-banner{background:#19283c;color:white;padding:30px;border-radius:18px;display:flex;justify-content:space-between;align-items:center;margin:35px 0}
+.feature-banner h2{font-size:24px;margin-bottom:10px}
+.feature-banner p{font-size:14px;color:#d0d9e4;line-height:2}
+.feature-icon{font-size:45px}
+
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.product{background:white;border:1px solid #e9edf1;border-radius:17px;overflow:hidden;transition:.2s}
+.product:hover{transform:translateY(-4px);box-shadow:0 10px 25px #0000000c}
+.product-image{width:100%;height:245px;object-fit:cover;background:#f1f3f5}
+.product-info{padding:19px}
+.tag{display:inline-block;background:#fff3d7;color:#8b6415;padding:7px 11px;border-radius:20px;font-size:12px;margin-bottom:12px}
+.product h3{font-size:19px;margin-bottom:10px}
+.product p{font-size:14px;color:#707987;line-height:1.9}
+.price{font-size:19px;color:#16724d;font-weight:bold;margin:15px 0 5px}
+.price-note{font-size:11px;color:#969da8;margin-bottom:12px}
+.no-price{font-size:14px;color:#8a909b;margin:15px 0}
+.why{background:#f5f6f8;padding:13px;border-radius:10px;font-size:13px;line-height:1.9;margin:14px 0}
+.buy-btn{display:block;text-align:center;width:100%;background:#101827;color:white;border:0;padding:14px;border-radius:10px;font-size:14px}
+.buy-btn:hover{background:#314c6b}
+.empty{display:none;text-align:center;padding:40px;color:#777}
+
+.budget{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:35px 0}
+.budget-card{padding:28px;border-radius:16px;background:#223650;color:white}
+.budget-card:nth-child(2){background:#a77b30}
+.budget-card:nth-child(3){background:#376d5a}
+.budget-card h3{font-size:21px;margin-bottom:12px}
+.budget-card p{font-size:14px;line-height:1.9;color:#eee}
+.budget-card button{margin-top:16px;padding:12px 18px;border:0;border-radius:9px;background:white;color:#172033}
+
+.compare{background:white;border:1px solid #e9edf1;border-radius:16px;padding:27px;margin:35px 0}
+.compare h2{margin-bottom:12px}
+.compare>p{color:#737c89;line-height:2}
+.compare-items{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.compare-box{background:#f5f6f8;padding:20px;border-radius:12px}
+.compare-box h3{margin-bottom:10px}
+.compare-box p{font-size:14px;line-height:1.9;color:#747d89}
+
+.about{background:white;border:1px solid #e9edf1;border-radius:16px;padding:30px;margin-top:40px}
+.about h2{margin-bottom:15px}
+.about p{color:#707987;line-height:2}
+
+footer{background:#101827;color:#aeb8c5;text-align:center;padding:38px 20px;margin-top:50px;line-height:2.2}
+footer strong{font-size:25px;color:#f5bd4f}
+footer small{font-size:12px}
+
+@media(max-width:950px){
+.products{grid-template-columns:repeat(2,1fr)}
+.hero h1{font-size:36px}
+.hero-img{height:280px}
+.categories{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:600px){
+nav{padding:16px}
+.logo{font-size:23px}
+.navlinks{gap:12px;font-size:12px}
+.hero{padding:35px 16px}
+.hero-inner{display:block}
+.hero h1{font-size:32px}
+.hero p{font-size:15px}
+.hero-img{width:100%;height:220px;margin-top:25px}
+.container{padding:28px 14px}
+.section-head h2{font-size:21px}
+.categories{gap:10px}
+.cat{padding:19px 9px}
+.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.product-image{height:155px}
+.product-info{padding:12px}
+.product h3{font-size:15px}
+.product p{font-size:12px}
+.why{font-size:12px;padding:10px}
+.buy-btn{font-size:12px;padding:12px 5px}
+.feature-banner{padding:20px}
+.feature-banner h2{font-size:19px}
+.budget{grid-template-columns:1fr}
+.compare-items{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav>
+<div class="logo">اختار صح</div>
+<div class="navlinks">
+<a href="#">الرئيسية</a>
+<a href="#discover">اكتشف</a>
+<a href="#budget">حسب ميزانيتك</a>
+<a href="#about">عن الموقع</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-text">
+<span class="hero-label">اكتشافات تستاهل</span>
+<h1>قبل ما تشتري..<br>اختار صح.</h1>
+<p>مش كل منتج يستاهل فلوسك. اكتشف أدوات وأفكار ومنتجات مفيدة، واعرف إيه اللي يستحق الشراء فعلًا.</p>
+
+<div class="search">
+<input id="searchInput" placeholder="دور على منتج معين..." oninput="searchProducts()">
+<button onclick="searchProducts()">بحث</button>
+</div>
+</div>
+
+<img class="hero-img" src="https://images.unsplash.com/photo-1490312278390-abd5e7b7b3f8?auto=format&fit=crop&w=1000&q=80" alt="اكتشاف منتجات جديدة">
+</div>
+</section>
+
+<main class="container">
+
+<div class="section-head">
+<h2>اكتشف حسب القسم</h2>
+<span>اختار اللي يهمك</span>
+</div>
+
+<div class="categories">
+<div class="cat" onclick="filterCategory('all')">
+<div class="cat-icon">✨</div>
+<h3>كل المنتجات</h3>
+<p>اكتشف كل اختياراتنا</p>
+</div>
+
+<div class="cat" onclick="filterCategory('home')">
+<div class="cat-icon">🏠</div>
+<h3>المنزل</h3>
+<p>أفكار تسهّل حياتك</p>
+</div>
+
+<div class="cat" onclick="filterCategory('tech')">
+<div class="cat-icon">📱</div>
+<h3>التكنولوجيا</h3>
+<p>أدوات وأجهزة ذكية</p>
+</div>
+
+<div class="cat" onclick="filterCategory('daily')">
+<div class="cat-icon">🧰</div>
+<h3>حاجات يومية</h3>
+<p>حلول لمشاكل بسيطة</p>
+</div>
+</div>
+
+<div class="feature-banner">
+<div>
+<h2>مش عارف تختار إيه؟</h2>
+<p>شوف اكتشافاتنا الجديدة.. يمكن تلاقي حاجة كنت محتاجها من غير ما تعرف.</p>
+</div>
+<div class="feature-icon">🔎</div>
+</div>
+
+<div class="section-head" id="discover">
+<h2>اكتشافات تستاهق</h2>
+<span>6 اختيارات مبدئية</span>
+</div>
+
+<div class="products" id="productsList">
+
+<!-- المنتج 1 -->
+<div class="product" data-name="حامل موبايل قابل للطي" data-category="tech">
+<img class="product-image" src="https://images.unsplash.com/photo-1585790050230-5dd28404ccb9?auto=format&fit=crop&w=700&q=80" alt="حامل موبايل">
+<div class="product-info">
+<span class="tag">راحة أكتر</span>
+<h3>حامل موبايل قابل للطي</h3>
+<p>حامل صغير يساعدك تثبت الموبايل أثناء مشاهدة الفيديو أو مكالمات الفيديو أو قراءة وصفة.</p>
+<div class="price">117 جنيه تقريبًا</div>
+<div class="price-note">سعر مرصود سابقًا وقد يتغير.</div>
+<div class="why">مناسب لو بتستخدم الموبايل كتير ومحتاج إيديك تكون فاضية.</div>
+<a class="buy-btn" href="https://www.amazon.eg/s?k=foldable+metal+phone+stand" target="_blank" rel="noopener">شوفه على أمازون</a>
+</div>
+</div>
+
+<!-- المنتج 2 -->
+<div class="product" data-name="مضرب رغوة القهوة" data-category="daily">
+<img class="product-image" src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=700&q=80" alt="مضرب رغوة القهوة">
+<div class="product-info">
+<span class="tag">لعشاق القهوة</span>
+<h3>مضرب رغوة القهوة</h3>
+<p>مضرب كهربائي صغير لعمل رغوة اللبن للمشروبات زي الكابتشينو واللاتيه.</p>
+<div class="price">216.75 جنيه</div>
+<div class="price-note">سعر رصد من مصدر بيع وقد يتغير.</div>
+<div class="why">لو بتحب تعمل مشروبات القهوة في البيت بدل ما تشتريها كل مرة.</div>
+<a class="buy-btn" href="https://www.amazon.eg/s?k=ENJOYCOOL+milk+frother" target="_blank" rel="noopener">شوفه على أمازون</a>
+</div>
+</div>
+
+<!-- المنتج 3 -->
+<div class="product" data-name="إضاءة LED بحساس حركة" data-category="home">
+<img class="product-image" src="https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=700&q=80" alt="إضاءة LED">
+<div class="product-info">
+<span class="tag">إضاءة ذكية</span>
+<h3>إضاءة LED بحساس حركة</h3>
+<p>إضاءة صغيرة للممرات أو الدواليب تشتغل عند اكتشاف الحركة حسب نوع الموديل.</p>
+<div class="no-price">السعر غير مؤكد حاليًا</div>
+<div class="why">ممكن تكون مفيدة في الأماكن اللي محتاجة نور سريع من غير ما تدور على المفتاح.</div>
+<a class="buy-btn" href="https://www.amazon.eg/s?k=rechargeable+motion+sensor+cabinet+light" target="_blank" rel="noopener">ابحث عنها على أمازون</a>
+</div>
+</div>
+
+<!-- المنتج 4 -->
+<div class="product" data-name="ميزان مطبخ رقمي" data-category="home">
+<img class="product-image" src="https://images.unsplash.com/photo-1556911220-bff31c812dba?auto=format&fit=crop&w=700&q=80" alt="ميزان مطبخ">
+<div class="product-info">
+<span class="tag">قياس دقيق</span>
+<h3>ميزان مطبخ رقمي</h3>
+<p>يساعد في قياس المقادير بالجرام، خصوصًا في وصفات الحلويات والأكل اللي محتاج وزن مضبوط.</p>
+<div class="price">125 جنيه تقريبًا</div>
+<div class="price-note">سعر مرصود سابقًا وقد يتغير.</div>
+<div class="why">مفيد لو بتحب تطبخ أو تعمل وصفات محتاجة مقادير دقيقة.</div>
+<a class="buy-btn" href="https://www.amazon.eg/s?k=SF-400+digital+kitchen+scale" target="_blank" rel="noopener">شوفه على أمازون</a>
+</div>
+</div>
+
+<!-- المنتج 5 -->
+<div class="product" data-name="أكياس حفظ الطعام السيليكون" data-category="home">
+<img class="product-image" src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=80" alt="أكياس حفظ طعام">
+<div class="product-info">
+<span class="tag">تنظيم المطبخ</span>
+<h3>أكياس حفظ الطعام السيليكون</h3>
+<p>أكياس قابلة لإعادة الاستخدام لتخزين بعض أنواع الأطعمة حسب تعليمات المنتج.</p>
+<div class="no-price">السعر غير مؤكد حاليًا</div>
+<div class="why">بديل ممكن لبعض أكياس التخزين أحادية الاستخدام، حسب جودة الخامة وسهولة تنظيفها.</div>
+<a class="buy-btn" href="https://www.amazon.eg/s?k=reusable+silicone+food+storage+bags" target="_blank" rel="noopener">ابحث عنها على أمازون</a>
+</div>
+</div>
+
+<!-- المنتج 6 -->
+<div class="product" data-name="علاقات شنط السيارة" data-category="daily">
+<img class="product-image" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=700&q=80" alt="إكسسوارات السيارة">
+<div class="product-info">
+<span class="tag">ترتيب السيارة</span>
+<h3>علاقات شنط السيارة</h3>
+<p>خطافات بتثبت في مسند الرأس للمساعدة في تعليق أكياس التسوق أو بعض الشنط.</p>
+<div class="no-price">السعر غير مؤكد حاليًا</div>
+<div class="why">ممكن تمنع الشنط من الحركة أو الوقوع على أرضية السيارة أثناء المشوار.</div>
+<a class="buy-btn" href="https://www.amazon.eg/s?k=car+headrest+hooks" target="_blank" rel="noopener">ابحث عنها على أمازون</a>
+</div>
+</div>
+
+</div>
+
+<div class="empty" id="empty">مش لاقيين منتجات مطابقة للبحث.</div>
+
+<div class="section-head" id="budget" style="margin-top:50px">
+<h2>اختار حسب ميزانيتك</h2>
+</div>
+
+<div class="budget">
+<div class="budget-card">
+<h3>منتجات اقتصادية</h3>
+<p>اكتشافات صغيرة بأسعار بسيطة ممكن تكون مفيدة في يومك.</p>
+<button onclick="filterCategory('daily')">اكتشف</button>
+</div>
+
+<div class="budget-card">
+<h3>للمنزل</h3>
+<p>أدوات عملية تساعد في التنظيم أو تسهّل بعض مهام البيت.</p>
+<button onclick="filterCategory('home')">اكتشف</button>
+</div>
+
+<div class="budget-card">
+<h3>للتكنولوجيا</h3>
+<p>إكسسوارات وأدوات تساعدك في استخدام الأجهزة بشكل أريح.</p>
+<button onclick="filterCategory('tech')">اكتشف</button>
+</div>
+</div>
+
+<div class="compare">
+<h2>قبل ما تشتري، قارن</h2>
+<p>مش دايمًا الأغلى هو الأفضل. اختار المنتج اللي يناسب استخدامك وميزانيتك.</p>
+<div class="compare-items">
+<div class="compare-box">
+<h3>الأرخص</h3>
+<p>مناسب لو استخدامك بسيط ومش محتاج إمكانيات كتير.</p>
+</div>
+<div class="compare-box">
+<h3>الأعلى جودة</h3>
+<p>مناسب لو هتستخدم المنتج كتير وعايز عمر أطول أو إمكانيات أفضل.</p>
+</div>
+</div>
+</div>
+
+<section class="about" id="about">
+<h2>عن اختار صح</h2>
+<p>مش هدفنا نعرض آلاف المنتجات. هدفنا نساعدك تكتشف حاجات مفيدة وتعرف إيه اللي يستحق فلوسك قبل ما تشتريه. بنركز على الفائدة، ونوضح المعلومات اللي نقدر نتحقق منها.</p>
+</section>
+
+</main>
+
+<footer>
+<strong>اختار صح</strong><br>
+قبل ما تشتري.. اختار صح.<br>
+<small>قد تتضمن بعض الروابط روابط عمولة. الأسعار قابلة للتغيير وننصح بمراجعة سعر المنتج عند البائع قبل الشراء.</small>
+</footer>
+
+<script>
+function searchProducts(){
+const q=document.getElementById('searchInput').value.trim().toLowerCase();
+let shown=0;
+document.querySelectorAll('.product').forEach(p=>{
+const match=p.dataset.name.toLowerCase().includes(q);
+p.style.display=match?'':'none';
+if(match)shown++;
+});
+document.getElementById('empty').style.display=shown?'none':'block';
+}
+function filterCategory(cat){
+let shown=0;
+document.querySelectorAll('.product').forEach(p=>{
+const match=cat==='all'||p.dataset.category===cat;
+p.style.display=match?'':'none';
+if(match)shown++;
+});
+document.getElementById('searchInput').value='';
+document.getElementById('empty').style.display=shown?'none':'block';
+document.getElementById('discover').scrollIntoView({behavior:'smooth'});
+}
+</script>
+
+</body>
+</html>
